@@ -25,8 +25,7 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + i) != '%')
 		{
-			_putchar(*(format + i));
-			printed_chars++;
+			printed_chars += _putchar(*(format + i));
 		}
 		else if (*(format + i) == '%')
 		{
@@ -35,8 +34,7 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 				c = va_arg(args, int);
-				_putchar(c);
-				printed_chars++;
+				printed_chars += _putchar(c);
 				break;
 			case 's':
 				str = va_arg(args, char *);
