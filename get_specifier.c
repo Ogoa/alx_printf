@@ -1,0 +1,32 @@
+#include <stddef.h>
+#include <stdarg.h>
+#include "main.h"
+
+/**
+ * get_specifier - Selects what function pointer to return based
+ * on the format specifier
+ * @c: Pointer to the character acting as the format specifier
+ *
+ * Return: Pointer to the appropriate function based on the
+ * matching format specifier
+ * NULL if no match is found
+ */
+int (*get_specifier(const char *c))(va_list args)
+{
+	funcs types[] = {
+		{"c", char_print},
+		{"s", str_print},
+		{"d", num_print},
+		{"i", num_print},
+		{NULL, NULL}
+	};
+	int i = 0;
+
+	while (types[i].spec)
+	{
+		if (*c == *(types[i].spec))
+			return (types[i].func);
+		i++;
+	}
+	return (NULL);
+}
