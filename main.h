@@ -62,6 +62,7 @@ int flags, int width, int precision, int size);
 int is_printable(char);
 int append_hexa_code(char, char[], int);
 int is_digit(char);
+int print_rot13string(va_list args, char *buffer);
 
 
 #endif /* #ifndef MAIN_H */
