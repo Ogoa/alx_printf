@@ -3,11 +3,11 @@
 /**
  * is_printable -Evaluates if a char is printable
  * @c: character to be evaluated
- * Return: 1 if c is printable, otherwise 0 
+ * Return: 1 if c is printable, otherwise 0
  */
 int is_printable(char c)
 {
-	if (c >= 32 && c < 127)
+	if (c >= 32 && c <= 127)
 		return (1);
 
 	return (0);
@@ -48,4 +48,3 @@ int is_digit(char c)
 
 	return (0);
 }
-

@@ -53,6 +53,10 @@ typedef struct format format_t;
 
 int _printf(const char *format, ...);
 int handle_print(const char *format, int *i, va_list list, char buffer[],
-		int flags, int width, int precision, int size);
+int flags, int width, int precision, int size);
+int is_printable(char);
+int append_hexa_code(char, char[], int);
+int is_digit(char);
+
 
 #endif /* #ifndef MAIN_H */
