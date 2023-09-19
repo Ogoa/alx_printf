@@ -11,13 +11,19 @@
  * matching format specifier
  * NULL if no match is found
  */
-int (*get_specifier(const char *c))(va_list args)
+int (*get_specifier(const char *c))(va_list args, char *buffer, int size)
 {
 	funcs types[] = {
 		{"c", char_print},
 		{"s", str_print},
 		{"d", num_print},
 		{"i", num_print},
+		{"b", bin_print},
+		{"u", unsigned_print},
+		{"o", oct_print},
+		{"x", hex_print},
+		{"X", hex_print},
+		{"S", s_print},
 		{NULL, NULL}
 	};
 	int i = 0;

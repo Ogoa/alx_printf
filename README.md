@@ -23,7 +23,7 @@ struct funcs
 };
 ```
 <br>
-Here, the key is the pointer to a character that indicates the type of format specifier, while the value is pointer to a functinon that takes an argument of type `va_list`.
+Here, the key is the pointer to a character that indicates the type of format specifier, while the value is pointer to a functinon that takes an argument of type `va_list`.<br>
 
 `handlers.c`<br>
 In this source file, the various functions that handle various format specifiers are defined.
@@ -31,3 +31,23 @@ In this source file, the various functions that handle various format specifiers
 `main.h`<br>
 This header file contains all function prototypes of the functions used across all C source files in this directory.<br>
 It also has structures that have been defined for purposes of function implementation.
+
+
+`u_o_x_handlers.c`<br>
+This source file contains the function `oct_print`, `hex_print` and `unsigned_int` that handle the `%o`, `%x` and `%u` format specifiers respectively.<br>
+Each function has the function signature:<br>
+`int func_name(va_list, char *, int);`<br>
+where the first formal paramater is a variable of type `va_list` from which the optional argument to be printed is etracted. The second parameter is a pointer to a character array that represents a buffer of size 1024 bytes, where the characters to be written onto the standard output are held. The third parameter is the buffer index at the time of the function call the `_printf` function.<br>
+The three functions also return the number of characters that have been added to the buffer (characters that will be printed from the optional argument they have handled).<br>
+
+`s_handler.c`<br>
+This source file contains the function `s_print` that is a custom conversion specifier `%S` that prints a string. However, non printable characters (0 < ASCII value < 32 or >= 127) are printed in this way: `\x`, followed by the ASCII code value in hexadecimal (upper case - always 2 characters). <br>
+```
+_printf("%S\n", "Best\nSchool");
+
+================================
+
+Output: Best\x0ASchool
+```
+<br>
+The code above shows a use case.<br>
