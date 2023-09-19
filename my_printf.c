@@ -32,8 +32,8 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (*(format + i) == 'c' || *(format + i) == 's' ||
-					*(format + i) == 'd' || *(format + i) == 'i' ||
-					*(format + i) == 'b' || *(format + i) == 'u' ||
+					*(format + i) == 'd' || *(format + i) == 'i' || *(format + i) == 'r' ||
+					*(format + i) == 'b' || *(format + i) == 'u' || *(format + i) == 'p' ||
 					*(format + i) == 'o' || *(format + i) == 'x' ||
 					*(format + i) == 'X' || *(format + i) == 'S')
 			{

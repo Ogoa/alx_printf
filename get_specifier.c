@@ -25,6 +25,8 @@ int (*get_specifier(const char *c))(va_list args, char *buffer, int size)
 		{"X", hex_print},
 		{"S", s_print},
 		{"R", print_rot13string},
+		{"r", reverse_str},
+		{"p", address_print},
 		{NULL, NULL}
 	};
 	int i = 0;

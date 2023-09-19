@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stdint.h>
 
 #define BUFF_SIZE 1024
 #define UNUSED(x) (void)(x)
@@ -17,6 +18,7 @@
 /*SIZE*/
 #define S_LONG 2
 #define S_SHORT 1
+=======
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -48,6 +50,10 @@ int unsigned_print(va_list args, char *buffer, int buffer_size);
 int oct_print(va_list args, char *buffer, int buffer_size);
 int hex_print(va_list args, char *buffer, int buffer_size);
 int s_print(va_list args, char *buffer, int buffer_size);
+int reverse_str(va_list args, char *buffer, int buffer_size);
+int address_print(va_list args, char *buffer, int buffer_size);
+int address_helper(uintptr_t num, char *buffer, int buffer_size);
+int hex_print_helper(int num, char *buffer, int buffer_size);
 
 /**
  * struct format -Structure operators
