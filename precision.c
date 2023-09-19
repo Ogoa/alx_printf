@@ -1,3 +1,5 @@
+#include <stddef.h>
+#include <stdarg.h>
 #include "main.h"
 
 /**
