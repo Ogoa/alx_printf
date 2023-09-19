@@ -25,13 +25,18 @@ int _print_str(const char *);
 typedef struct funcs
 {
 	char *spec;
-	int (*func)(va_list);
+	int (*func)(va_list, char *, int);
 } funcs;
 
-int (*get_specifier(const char *))(va_list args);
-int char_print(va_list args);
-int str_print(va_list args);
-int num_print(va_list args);
+int (*get_specifier(const char *))(va_list args, char *buffer, int size);
+int char_print(va_list args, char *buffer, int buffer_size);
+int str_print(va_list args, char *buffer, int buffer_size);
+int num_print(va_list args, char *buffer, int buffer_size);
+int bin_print(va_list args, char *buffer, int buffer_size);
+int unsigned_print(va_list args, char *buffer, int buffer_size);
+int oct_print(va_list args, char *buffer, int buffer_size);
+int hex_print(va_list args, char *buffer, int buffer_size);
+int s_print(va_list args, char *buffer, int buffer_size);
 
 /**
  * struct format -Structure operators
