@@ -5,6 +5,7 @@
 #include <unistd.h>
 
 #define BUFF_SIZE 1024
+#define UNUSED(x) (void)(x)
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -31,5 +32,27 @@ int (*get_specifier(const char *))(va_list args);
 int char_print(va_list args);
 int str_print(va_list args);
 int num_print(va_list args);
+
+/**
+ * struct format -Structure operators
+ * @format: the format
+ * @fn: the associated function
+ */
+struct format
+{
+	char format;
+	int (*fn)(va_list, char[], int, int, int, int);
+};
+
+/**
+ * typedef struct format format_t -Structure operator
+ * @format: the format
+ * @format_t: the function associated
+ */
+typedef struct format format_t;
+
+int _printf(const char *format, ...);
+int handle_print(const char *format, int *i, va_list list, char buffer[],
+		int flags, int width, int precision, int size);
 
 #endif /* #ifndef MAIN_H */
