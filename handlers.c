@@ -16,6 +16,8 @@ int char_print(va_list args, char *buffer, int buffer_size)
 {
 	char c;
 
+	if (buffer == NULL)
+		return (0);
 	c = va_arg(args, int);
 	if (c == '\0')
 	{
@@ -44,7 +46,7 @@ int str_print(va_list args, char *buffer, int buffer_size)
 	const char *str;
 
 	str = va_arg(args, char *);
-	if (str == NULL)
+	if (str == NULL || buffer == NULL)
 		return (0);
 	while (*(str + str_length) != '\0')
 	{
@@ -71,6 +73,8 @@ int num_print(va_list args, char *buffer, int buffer_size)
 	char temp_arr[20] = ""; /* Temporary buffer to hold digits */
 	int i = 0;
 
+	if (buffer == NULL)
+		return (0);
 	num = va_arg(args, int);
 	if (num < 0)
 	{
@@ -119,6 +123,8 @@ int bin_print(va_list args, char *buffer, int buffer_size)
 			     */
 	int printed_digits = 0;
 
+	if (buffer == NULL)
+		return (0);
 	num = va_arg(args, int);
 	if (num == 0)
 	{

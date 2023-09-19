@@ -21,6 +21,8 @@ int oct_print(va_list args, char *buffer, int buffer_size)
 			    * representation of the decimal number
 			    */
 
+	if (buffer == NULL)
+		return (0);
 	num = va_arg(args, int);
 	while (num)
 	{
@@ -48,10 +50,37 @@ int hex_print(va_list args, char *buffer, int buffer_size)
 {
 	int printed_chars = 0;
 	int num = 0;
-	int i = 0;
-	char temp_arr[8]; /* Temporary buffer */
 
+	if (buffer == NULL)
+		return (0);
 	num = va_arg(args, int);
+	if (num == 0)
+	{
+		buffer[buffer_size++] = 0 + '0';
+		return (1);
+	}
+	printed_chars += hex_print_helper(num, buffer, buffer_size);
+	return (printed_chars);
+}
+
+/**
+ * hex_print_helper - Function that handles work delegated from hex_print()
+ * @num: Number to be converted into its hexadecimal equivalent
+ * @buffer: Pointer to an array character that will hold the characters
+ * to be printed
+ * @buffer_size: The current index of the buffer at the time of the
+ * function call
+ *
+ * Return: The number of characters that will be printed
+ */
+int hex_print_helper(int num, char *buffer, int buffer_size)
+{
+	char temp_arr[16]; /* Temporary buffer */
+	int i = 0;
+	int printed_chars = 0;
+
+	if (buffer == NULL)
+		return (0);
 	while (num)
 	{
 		int n;
@@ -102,6 +131,8 @@ int unsigned_print(va_list args, char *buffer, int buffer_size)
 	int i = 0;
 	char temp_arr[32];
 
+	if (buffer == NULL)
+		return (0);
 	num = va_arg(args, int);
 	while (num)
 	{
