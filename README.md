@@ -53,4 +53,7 @@ Output: Best\x0ASchool
 The code above shows a use case.<br>
 
 `reverse_str.c`
-This source file contains the function `reverse_str` that is a custom conversion specifier `%r` that prints a reverse string.
+This source file contains the function `reverse_str` that is a custom conversion specifier `%r` that prints a reverse string. The function passes the characters through a buffer which prints the string in reverse.
+<br>
+
+
