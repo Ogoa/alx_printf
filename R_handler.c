@@ -1,3 +1,5 @@
+#include <stdarg.h>
+#include <stddef.h>
 #include "main.h"
 
 /**
@@ -7,21 +9,22 @@
  * @buffer_size: index of the buffer at the time of function call
  * Return: number of characters printed
  */
-int print_rot13string(va_list args, char *buffer, int)
+int print_rot13string(va_list args, char *buffer, int buffer_size)
 {
 	char x;
 	char *str;
-	unsigned int i, j;
+	unsigned int i = 0;
+	unsigned int j = 0;
 	int count = 0;
 	char in[] =
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char out[] =
-		"NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"
+		"NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	str = va_arg(args, char *);
 
 	if (str == NULL)
-		str = "(AHYY)";
+		return (0);
 	for (i = 0; str[i]; i++)
 	{
 		for (j = 0; in[j]; j++)
@@ -29,7 +32,7 @@ int print_rot13string(va_list args, char *buffer, int)
 			if (in[j] == str[i])
 			{
 				x = out[j];
-				write(1, &x, 1);
+				buffer[buffer_size++] = x;
 				count++;
 				break;
 			}
@@ -37,10 +40,9 @@ int print_rot13string(va_list args, char *buffer, int)
 		if (!in[j])
 		{
 			x = str[i];
-			write(1, &x, 1);
+			buffer[buffer_size++] = x;
 			count++;
 		}
 	}
 	return (count);
 }
-
