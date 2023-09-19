@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include <stdarg.h>
+#include <stdint.h>
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -33,5 +34,9 @@ int unsigned_print(va_list args, char *buffer, int buffer_size);
 int oct_print(va_list args, char *buffer, int buffer_size);
 int hex_print(va_list args, char *buffer, int buffer_size);
 int s_print(va_list args, char *buffer, int buffer_size);
+int reverse_str(va_list args, char *buffer, int buffer_size);
+int address_print(va_list args, char *buffer, int buffer_size);
+int address_helper(uintptr_t num, char *buffer, int buffer_size);
+int hex_print_helper(int num, char *buffer, int buffer_size);
 
 #endif /* #ifndef MAIN_H */

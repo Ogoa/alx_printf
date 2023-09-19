@@ -17,7 +17,7 @@ int s_print(va_list args, char *buffer, int buffer_size)
 	const char *str;
 
 	str = va_arg(args, char *);
-	if (str == NULL)
+	if (str == NULL || buffer == NULL)
 		return (0);
 	while (*(str + str_length) != '\0')
 	{
