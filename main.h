@@ -56,7 +56,7 @@ int address_helper(uintptr_t num, char *buffer, int buffer_size);
 int hex_print_helper(int num, char *buffer, int buffer_size);
 
 /**
- * struct format -Structure operators
+ * struct format - Structure operators
  * @format: the format
  * @fn: the associated function
  */
@@ -79,7 +79,7 @@ int flags, int width, int precision, int size);
 int is_printable(char);
 int append_hexa_code(char, char[], int);
 int is_digit(char);
-int print_rot13string(va_list args, char *buffer);
+int print_rot13string(va_list args, char *buffer, int buffer_size);
 
 
 #endif /* #ifndef MAIN_H */
