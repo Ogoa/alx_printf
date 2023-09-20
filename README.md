@@ -51,3 +51,10 @@ Output: Best\x0ASchool
 ```
 <br>
 The code above shows a use case.<br>
+
+`reverse_str.c`
+This source file contains the function `reverse_str` that is a custom conversion specifier `%r` that prints a reverse string. The function passes the characters through a buffer which prints the string in reverse.
+<br>
+
+`p_handler`This source file contains the function `address_print` that is a custom conversion specifier `%p` that prints the address of a pointer. The function returns the address of the pointer specifier and prints it.
+<br>
